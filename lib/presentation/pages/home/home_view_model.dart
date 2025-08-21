@@ -51,6 +51,12 @@ class HomeViewModel extends Notifier<HomeState> {
       );
     }
   }
+
+  void removeProduct(String productId) {
+    final updatedItems =
+    state.items.where((product) => product.id != productId).toList();
+    state = state.copyWith(items: updatedItems);
+  }
 }
 
 final homeViewModelProvider = NotifierProvider<HomeViewModel, HomeState>(

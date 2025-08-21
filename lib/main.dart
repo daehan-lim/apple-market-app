@@ -1,3 +1,4 @@
+import 'package:apple_market/presentation/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: AppTheme.buildTheme(),
-      home: TestDataPage(),
+      home: HomePage(),
     );
   }
 }
