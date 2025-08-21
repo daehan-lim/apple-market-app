@@ -1,4 +1,5 @@
 import 'package:apple_market/app/data_providers.dart';
+import 'package:apple_market/core/utils/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/constants/app_constants.dart';
@@ -42,7 +43,8 @@ class HomeViewModel extends Notifier<HomeState> {
       final products =
           await ref.read(productRepositoryProvider).getAllProducts();
       state = state.copyWith(items: products, isLoading: false);
-    } catch (error) {
+    } catch (error, stack) {
+      logError(error, stack, reason: 'Failed to load products');
       state = state.copyWith(
         errorMessage: '상품 정보를 불러오는데 실패했습니다. 앱을 다시 실행해주세요.',
         isLoading: false,
