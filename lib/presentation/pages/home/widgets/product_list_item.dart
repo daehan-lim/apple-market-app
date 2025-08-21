@@ -18,6 +18,7 @@ class ProductListItem extends ConsumerWidget {
   Future<void> _handleLongPress(BuildContext context, WidgetRef ref) async {
     final shouldDelete = await DialogUtil.showRemovalConfirmation(context);
     if (shouldDelete == true) {
+      // setState 대신 Riverpod ViewModel 사용 (더 나은 상태 관리를 위해)
       ref.read(homeViewModelProvider.notifier).removeProduct(product.id);
     }
   }
