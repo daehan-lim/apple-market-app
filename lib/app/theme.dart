@@ -17,9 +17,8 @@ class AppTheme {
           minimumSize: Size.zero,
           padding: EdgeInsets.zero,
           textStyle: const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontSize: 17,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),

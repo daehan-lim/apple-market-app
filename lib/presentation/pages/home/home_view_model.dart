@@ -52,9 +52,25 @@ class HomeViewModel extends Notifier<HomeState> {
     }
   }
 
+  void toggleProductLike(String productId) {
+    final index = state.items.indexWhere((product) => product.id == productId);
+    if (index != -1) {
+      final updatedItems = List<Product>.from(state.items);
+      updatedItems[index] = _updateProductLikeStatus(updatedItems[index]);
+      state = state.copyWith(items: updatedItems);
+    }
+  }
+
+  Product _updateProductLikeStatus(Product product) {
+    final newLikeStatus = !product.isLiked;
+    final newLikeCount =
+        newLikeStatus ? product.likeCount + 1 : product.likeCount - 1;
+    return product.copyWith(isLiked: newLikeStatus, likeCount: newLikeCount);
+  }
+
   void removeProduct(String productId) {
     final updatedItems =
-    state.items.where((product) => product.id != productId).toList();
+        state.items.where((product) => product.id != productId).toList();
     state = state.copyWith(items: updatedItems);
   }
 }

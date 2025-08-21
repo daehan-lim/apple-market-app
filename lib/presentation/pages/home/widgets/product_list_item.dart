@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app/constants/app_colors.dart';
 import '../../../../app/constants/app_constants.dart';
 import '../../../../domain/entity/product.dart';
+import '../../detail/product_detail_page.dart';
 
 class ProductListItem extends ConsumerWidget {
   final Product product;
@@ -22,12 +23,12 @@ class ProductListItem extends ConsumerWidget {
   }
 
   void _navigateToDetail(BuildContext context) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => ProductDetailPage(product: product),
-    //   ),
-    // );
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductDetailPage(product: product),
+      ),
+    );
   }
 
   @override

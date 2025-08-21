@@ -7,7 +7,7 @@ class SnackbarUtil {
     messenger.showSnackBar(
       SnackBar(
         backgroundColor: Colors.black87,
-        content: Text(text, style: const TextStyle(color: Colors.white)),
+        content: Text(text, style: const TextStyle(color: Colors.white, fontSize: 16)),
         behavior: SnackBarBehavior.floating,
         showCloseIcon: true,
         duration: Duration(seconds: 2),
