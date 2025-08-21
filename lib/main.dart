@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/constants/app_constants.dart';
 import 'app/theme.dart';
-import 'debug/test_page.dart';
 
 void main() async {
   runApp(ProviderScope(child: const MyApp()));

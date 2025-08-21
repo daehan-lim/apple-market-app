@@ -3,6 +3,7 @@ import 'package:apple_market/core/utils/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/constants/app_constants.dart';
+import '../../../core/exceptions/product_data_exceptions.dart';
 import '../../../domain/entity/product.dart';
 
 class HomeState {
@@ -46,7 +47,9 @@ class HomeViewModel extends Notifier<HomeState> {
     } catch (error, stack) {
       logError(error, stack, reason: 'Failed to load products');
       state = state.copyWith(
-        errorMessage: '상품 정보를 불러오는데 실패했습니다. 앱을 다시 실행해주세요.',
+        errorMessage: error is ProductDataException
+            ? '상품 정보를 불러오는데 실패했습니다. 앱을 다시 실행해주세요.'
+            : '일시적인 오류가 발생했습니다. 잠시 후 다시 시도해주세요.',
         isLoading: false,
       );
     }
