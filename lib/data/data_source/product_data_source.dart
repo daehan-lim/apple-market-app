@@ -12,7 +12,7 @@ class ProductDataSource {
       final productRows = _extractDataRows(csvData);
       return _convertToProductDtos(productRows);
     } catch (error) {
-      throw const ProductDataException('상품 정보를 불러오는데 실패했습니다.\n앱을 다시 실행해주세요.');
+      throw const ProductDataException();
     }
   }
 
