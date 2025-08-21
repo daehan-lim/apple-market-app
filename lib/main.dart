@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'app/constants/app_constants.dart';
+import 'app/theme.dart';
 import 'debug/test_page.dart';
 
 void main() async {
@@ -13,10 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // title: AppConstants.appTitle,
+      title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      // theme: AppTheme.buildTheme(),
+      theme: AppTheme.buildTheme(),
       home: TestDataPage(),
     );
   }
