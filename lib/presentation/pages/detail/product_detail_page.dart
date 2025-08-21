@@ -1,6 +1,7 @@
 import 'package:apple_market/presentation/pages/detail/widgets/product_bottom_section.dart';
 import 'package:apple_market/presentation/pages/detail/widgets/product_description.dart';
 import 'package:apple_market/presentation/pages/detail/widgets/seller_information.dart';
+import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -68,14 +69,26 @@ class ProductDetailPage extends ConsumerWidget {
   }
 
   Widget buildProductHeaderImage(
-    BuildContext context, {
-    required String imageFileName,
-  }) {
-    return AspectRatio(
-      aspectRatio: 16 / 10,
-      child: Image.asset(
-        '${AppConstants.imageBasePath}$imageFileName.png',
-        fit: BoxFit.cover,
+      BuildContext context, {
+        required String imageFileName,
+      }) {
+    return GestureDetector(
+      onTap: () {
+        final imageProvider = AssetImage('${AppConstants.imageBasePath}$imageFileName.png');
+        showImageViewer(
+          context,
+          imageProvider,
+          swipeDismissible: true,
+          doubleTapZoomable: true,
+          useSafeArea: true,
+        );
+      },
+      child: AspectRatio(
+        aspectRatio: 16 / 10,
+        child: Image.asset(
+          '${AppConstants.imageBasePath}$imageFileName.png',
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
