@@ -66,7 +66,7 @@ class ProductListItem extends ConsumerWidget {
         const SizedBox(width: AppConstants.itemImageSize),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
