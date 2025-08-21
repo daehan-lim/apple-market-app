@@ -23,32 +23,18 @@ class ProductDto {
     required this.messageCount,
   });
 
-  factory ProductDto.fromJson(Map<String, dynamic> json) {
+  factory ProductDto.fromCsvColumns(List<String> columns) {
     return ProductDto(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      imageFileName: json['imageFileName'] as String,
-      description: json['description'] as String,
-      seller: json['seller'] as String,
-      price: json['price'] as String,
-      address: json['address'] as String,
-      likeCount: json['likeCount'] as int,
-      messageCount: json['messageCount'] as int,
+      id: columns[0],
+      imageFileName: columns[1],
+      name: columns[2],
+      description: columns[3],
+      seller: columns[4],
+      price: columns[5],
+      address: columns[6],
+      likeCount: int.parse(columns[7]),
+      messageCount: int.parse(columns[8]),
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'imageFileName': imageFileName,
-      'description': description,
-      'seller': seller,
-      'price': price,
-      'address': address,
-      'likeCount': likeCount,
-      'messageCount': messageCount,
-    };
   }
 
   Product toEntity() {

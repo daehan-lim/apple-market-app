@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'debug/test_page.dart';
+
 void main() async {
   runApp(ProviderScope(child: const MyApp()));
 }
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       // theme: AppTheme.buildTheme(),
-      home: Center(),
+      home: TestDataPage(),
     );
   }
 }
